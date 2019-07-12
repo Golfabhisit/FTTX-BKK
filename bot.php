@@ -42,7 +42,7 @@ if ($modex == 'Normal') {
     $response = Unirest\Request::get("$uri");
     $json = json_decode($response->raw_body, true);
     $results = array_filter($json['user'], function($user) use ($command) {
-    return $user['RAN ID'] == $command;
+    return $user['SITE ID'] == $command;
     }
   );
 $i=0;
@@ -155,7 +155,7 @@ elseif ($modex == 'keyword') {
     $urikey = file_get_contents('./user/' . $userId . 'data.json');
     $deckey = json_decode($urikey, true);
     $results = array_filter($deckey, function($user) use ($command) {
-    return $user['RAN ID'] == $command;
+    return $user['SITE ID'] == $command;
     }
   );
 $i=0;
