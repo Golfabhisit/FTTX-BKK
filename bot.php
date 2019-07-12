@@ -166,9 +166,9 @@ $i++;
 }
 $enzz = json_encode($zaza);
     file_put_contents('./user/' . $userId . 'data.json', $enzz);
-$text .= 'SITE : ' . $zaza[0]['SITE ID'];
+$text .= 'SITE ID : ' . $zaza[0]['SITE ID'];
 $text .= "\n";
-$text .= 'SITE ID : ' . $zaza[0]['RAN ID'];
+$text .= 'RAN ID : ' . $zaza[0]['RAN ID'];
 $text .= "\n";
 $text .= 'SITE NAME : ' . $zaza[0]['SITE NAME'];
 $text .= "\n";
