@@ -155,7 +155,7 @@ elseif ($modex == 'keyword') {
     $urikey = file_get_contents('./user/' . $userId . 'data.json');
     $deckey = json_decode($urikey, true);
     $results = array_filter($deckey, function($user) use ($command) {
-    return $user['SITE ID'] == $command;
+    return $user['RAN ID'] == $command;
     }
   );
 $i=0;
