@@ -75,14 +75,14 @@ if(empty($site05)) {
 if(empty($site06)) {
   $site06 .= '#N/A';
 }
-$textz .= "PLEASE SPECIFY *RAN ID* FOR YOUR SEARCH.";
+$textz .= "PLEASE SPECIFY *RAN ID* FOR YOUR SEARCH";
 if(empty($results)) {
       $mreply = array(
         'replyToken' => $replyToken,
         'messages' => array( 
           array(
                 'type' => 'text',
-                'text' => 'INFORMATION NOT FOUND.'
+                'text' => 'INFORMATION NOT FOUND'
 )
         )
       );
