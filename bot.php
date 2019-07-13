@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 #-------------------------[Include]-------------------------#
 require_once('./include/line_class.php');
 require_once('./unirest-php-master/src/Unirest.php');
@@ -34,7 +34,7 @@ if (count($usertext) > 2) {
 }
 
 
-if ($command == 'exit') {
+if ($command == 'Cancel Search Successfully') {
     file_put_contents('./user/' . $userId . 'mode.json', 'step1');
   }
 else {
@@ -111,7 +111,7 @@ if(empty($results)) {
         'messages' => array( 
           array(
                 'type' => 'text',
-                'text' => 'INFORMATION NOT FOUND'
+                'text' => 'INFORMATION ("+dataArray+") NOT FOUND'
 )
         )
       );
@@ -251,13 +251,33 @@ $text .= 'REMARK SDE : ' . $sortdata[0]['REMARK SDE'];
     $uribykey = file_get_contents('./user/' . $userId . 'data.json');
     $decbykey = json_decode($uribykey, true);
 
+ #-filter data form gg sheet by command-#  
+    $results = array_filter($json['user'], function($user) use ($command) {
+    return $user['SITE NAME'] == $command;
+    }
+  );
+
+
+#-sort array-#
+$i=0;
+$decbykey = array();
+foreach($results as $resultsz){
+$decbykey[$i] = $resultsz;
+$i++;
+}
+
+#-encode $xsortdata array to json-#
+$enxsortdata = json_encode($decbykey);
+#-put encoded data to file-#
+file_put_contents('./user/' . $userId . 'data.json', $endecbykey);
+
 #-get choice by ran id-#
-$sitekey01 .= $decbykey['0']['RAN ID'];
-$sitekey02 .= $decbykey['1']['RAN ID'];
-$sitekey03 .= $decbykey['2']['RAN ID'];
-$sitekey04 .= $decbykey['3']['RAN ID'];
-$sitekey05 .= $decbykey['4']['RAN ID'];
-$sitekey06 .= $decbykey['5']['RAN ID'];
+$sitekey01 .= $decbykey['0']['SITE NAME'];
+$sitekey02 .= $decbykey['1']['SITE NAME'];
+$sitekey03 .= $decbykey['2']['SITE NAME'];
+$sitekey04 .= $decbykey['3']['SITE NAME'];
+$sitekey05 .= $decbykey['4']['SITE NAME'];
+$sitekey06 .= $decbykey['5']['SITE NAME'];
 
 #-check data empty-#
 if(empty($sitekey01)) {
