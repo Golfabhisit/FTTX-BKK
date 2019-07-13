@@ -197,7 +197,7 @@ elseif ($modex == 'step2') {
     $deckey = json_decode($urikey, true);
     #-filter data form json file by command-# 
     $results = array_filter($deckey, function($user) use ($command) {
-    return $user['RAN ID'] == $command;
+    return $user['SINE NAME'] == $command;
     }
   );
 
