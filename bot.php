@@ -197,7 +197,7 @@ elseif ($modex == 'step2') {
     $deckey = json_decode($urikey, true);
     #-filter data form json file by command-# 
     $results = array_filter($deckey, function($user) use ($command) {
-    return $user['SINE NAME'] == $command;
+    return $user['RAN ID'] == $command;
     }
   );
 
@@ -252,12 +252,12 @@ $text .= 'REMARK SDE : ' . $sortdata[0]['REMARK SDE'];
     $decbykey = json_decode($uribykey, true);
 
 #-get choice by ran id-#
-$sitekey01 .= $decbykey['0']['SINE NAME'];
-$sitekey02 .= $decbykey['1']['SINE NAME'];
-$sitekey03 .= $decbykey['2']['SINE NAME'];
-$sitekey04 .= $decbykey['3']['SINE NAME'];
-$sitekey05 .= $decbykey['4']['SINE NAME'];
-$sitekey06 .= $decbykey['5']['SINE NAME'];
+$sitekey01 .= $decbykey['0']['RAN ID'];
+$sitekey02 .= $decbykey['1']['RAN ID'];
+$sitekey03 .= $decbykey['2']['RAN ID'];
+$sitekey04 .= $decbykey['3']['RAN ID'];
+$sitekey05 .= $decbykey['4']['RAN ID'];
+$sitekey06 .= $decbykey['5']['RAN ID'];
 
 #-check data empty-#
 if(empty($sitekey01)) {
